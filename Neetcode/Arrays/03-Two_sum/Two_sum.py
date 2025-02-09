@@ -10,8 +10,7 @@ class Solution:
             z = target - num
 
             if z in numap:
-                return [numap[z], i] # [i, numap[z] == j]
-            
+                return [numap[z], i] # [numap[z] == j, i]          
             numap[num] = i
 
         return []
