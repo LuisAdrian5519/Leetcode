@@ -1,0 +1,20 @@
+from typing import List
+
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        nums_set = set(nums)
+        longest = 0
+
+        for n in nums_set:
+            # Revisa si n es el inicio de una secuencia
+            if (n - 1) not in nums_set:
+                length = 1
+                
+                # Cuenta la longitud de la secuencia consecutiva
+                while (n + length) in nums_set:
+                    length += 1
+                
+                # Actualiza la longitud máxima encontrada
+                longest = max(length, longest)
+                
+        return longest
