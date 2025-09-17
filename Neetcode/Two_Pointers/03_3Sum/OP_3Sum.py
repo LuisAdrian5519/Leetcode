@@ -26,7 +26,7 @@ class Solution:
 
         return combinations
     
-nums = [-1,0,1,2,-1,-4]
+nums = [1,7,1,1,1,1,2,5,12,3,500,50,7,8,4,7,38,9,10,12,6]
     
 sol = Solution()
 print(sol.threeSum(nums))
