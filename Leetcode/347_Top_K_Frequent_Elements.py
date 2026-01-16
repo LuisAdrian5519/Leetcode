@@ -34,4 +34,4 @@ k = 2
 
 sol = Solution()
 
-print(Solution.topKFrequent(nums, k))
+print(sol.topKFrequent(nums, k))
