@@ -26,7 +26,7 @@ class Solution:
                 heapq.heappop(heap)
 
         # Extraer los values
-        return [key for freqs, key in heap]
+        return [key for freq, key in heap]
     
 
 nums = [1,1,1,2,2,3]
