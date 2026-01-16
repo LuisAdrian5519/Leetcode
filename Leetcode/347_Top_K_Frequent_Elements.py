@@ -2,25 +2,30 @@ import heapq
 from collections import Counter
 
 class Solution:
-    def topKFrequent(self, nums: list[int], k: int) -> list[int]:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         
         # Crear un Hash Map con las frecuencias
         # Crear un heap de k espacios
         # Iterar sobre las keys e ir haciendo push:
             # siempre y cuando la key actual tenga un value mayor al heap[0], valor menor del heap
         
-        freq = Counter(nums)
+        # Frequency Hash
+        freqs = Counter(nums)
 
-        heap = [0] * k
+        # Min Heap para guardar valor y frecuencia
+        heap = []
 
-        for key in freq.keys():
-            # Si tengo un número cuya frecuencia es igual a la frecuencia más baja de mi heap:
+        for key, freq in freqs.items():
+
+            heapq.heappush(heap, (freq, key))
+
+            # Si el size de mi heap es mayor a k, debo sustituir:
                 # debo sustituir
-            if freq[key] > heap[0]:
+            if len(heap) > k:
                 heapq.heappop(heap)
-                heapq.heappush(heap, key)
 
-        return heap
+        # Extraer los values
+        return [key for freqs, key in heap]
     
 
 nums = [1,1,1,2,2,3]
